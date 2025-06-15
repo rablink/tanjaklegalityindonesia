@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanjak Legality Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #992222;
+      color: #000;
+    }
+    header {
+      background-color: #5e0000;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      background-color: rgba(107, 8, 8, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      max-width: 90%;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2 {
+      color: #000;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 30px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .foto-utama {
+      padding: 2rem 2rem 0;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .foto-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .foto-grid img:hover {
+      transform: scale(1.03);
+    }
+    .cta {
+      background-color: #ff2a2a;
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+    .cta-btn {
+      background-color: #d17d7d;
+      color: #000;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+    .cta-btn:hover {
+      background-color: #e6c200;
+    }
+    .floating-chat-box {
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      background: #a52323;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      max-width: 260px;
+      font-size: 14px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transform: translateY(20px);
+    }
+    .floating-chat-box.show {
+      opacity: 0.95;
+      transform: translateY(0);
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .faq-question {
+      background-color: #5e0000;
+      color: white;
+      padding: 1rem;
+      width: 100%;
+      text-align: left;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .faq-answer {
+      padding: 1rem;
+      display: none;
+      background-color: #f9f9f9;
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .why-us {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .why-box {
+      background-color: #fff3f3;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .why-box:hover {
+      transform: translateY(-5px);
+    }
+    .why-box h3 {
+      color: #5e0000;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+    .counter-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .counter-box {
+      flex: 1 1 150px;
+      background-color: #fff3f3;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .counter {
+      font-size: 2.5rem;
+      color: #5e0000;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #5e0000;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-tanjak.png" alt="Tanjak Legality Logo">
+    <nav>
+      <a href="#layanan">Layanan</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Tanjak Legality Indonesia</h1>
+  </section>
+
+  <section class="foto-utama">
+    <div class="foto-grid">
+      <img src="foto1.jpg" alt="Foto 1">
+      <img src="foto2.jpg" alt="Foto 2">
+      <img src="foto3.jpg" alt="Foto 3">
+      <img src="foto4.jpg" alt="Foto 4">
+    </div>
+  </section>
+
+  <section class="section" id="kenapa">
+    <h2>Kenapa Pilih Kami?</h2>
+    <div class="why-us">
+      <div class="why-box">
+        <h3>✅ Proses Cepat</h3>
+        <p>Pendaftaran dan pengurusan izin bisa selesai dalam 1–3 hari kerja, tanpa ribet.</p>
+      </div>
+      <div class="why-box">
+        <h3>✅ Terpercaya & Berpengalaman</h3>
+        <p>Kami sudah menangani ratusan klien dari berbagai bidang usaha di seluruh Indonesia.</p>
+      </div>
+      <div class="why-box">
+        <h3>✅ Layanan Online Full</h3>
+        <p>Tanpa perlu datang ke kantor, cukup via WhatsApp dan email — semua bisa beres dari rumah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="statistik">
+    <h2>Pencapaian Kami</h2>
+    <button id="cekStatistikBtn" style="padding: 10px 20px; background:#5e0000; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">Cek Statistik</button>
+    <div class="counter-container" id="statistikBox" style="display: none; margin-top: 2rem;">
+      <div class="counter-box">
+        <div class="counter" data-target="350">0</div>
+        <p>✅Usaha Dilegalkan</p>
+      </div>
+      <div class="counter-box">
+        <div class="counter" data-target="120">0</div>
+        <p>💼PT & CV Terdaftar</p>
+      </div>
+      <div class="counter-box">
+        <div class="counter" data-target="200">0</div>
+        <p>📄Dokumen Legal Diterbitkan</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="layanan">
+    <h2>Layanan Kami</h2>
+    <div class="cards">
+      <div class="card"><img src="layanan1.jpg" alt="Legalitas + Website Gratis"></div>
+      <div class="card"><img src="layanan2.jpg" alt="Izin Usaha Cepat"></div>
+      <div class="card"><img src="layanan3.jpg" alt="Izin Edar Produk"></div>
+      <div class="card"><img src="layanan4.jpg" alt="Izin Edar Produk"></div>
+    </div>
+  </section>
+
+  <section class="section" id="tentang">
+    <h2>Tentang Kami</h2>
+    <p>
+      Tanjak Legality Indonesia adalah penyedia jasa legalitas & perizinan perusahaan. Kami melayani pendirian PT, CV, firma, yayasan, NIB, OSS, izin gudang, pabrik, kebun, dan lainnya dengan pelayanan profesional dan cepat.
+    </p>
+  </section>
+
+  <section class="section" id="kontak">
+    <h2>Kontak Kami</h2>
+    <p>📍 Jalan Melur, Pekanbaru</p>
+    <p>📧 tanjaklegalityindonesia@gmail.com</p>
+    <p>📱 <a href="https://wa.me/6288279790960">Hubungi via WhatsApp</a></p>
+  </section>
+
+  <section class="cta">
+    <h2>Siap Legalkan Usahamu?</h2>
+    <p>Konsultasi GRATIS dan proses cepat ✨</p>
+    <a href="https://wa.me/6288279790960" class="cta-btn">Hubungi Kami Sekarang</a>
+  </section>
+
+  <section class="section" id="faq">
+    <h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>
+    <div class="faq-item"><button class="faq-question">Berapa lama proses legalitas?</button><div class="faq-answer">1–3 hari kerja tergantung jenis legalitas.</div></div>
+    <div class="faq-item"><button class="faq-question">Apakah bisa untuk UMKM kecil?</button><div class="faq-answer">Tentu! Kami melayani dari mikro hingga besar.</div></div>
+    <div class="faq-item"><button class="faq-question">Apa saya harus datang ke kantor?</button><div class="faq-answer">Tidak perlu, cukup online via WA/email.</div></div>
+    <div class="faq-item"><button class="faq-question">Apakah bisa sekalian buat website?</button><div class="faq-answer">Bisa! Ada paket legalitas + website.</div></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tanjak Legality Indonesia. All rights reserved.</p>
+  </footer>
+
+  <div id="chatBox" class="floating-chat-box"></div>
+
+  <script>
+    // Floating Chat
+    const chatBox = document.getElementById("chatBox");
+    const messages = [
+      "💬 “Pelayanan cepat dan jelas. Sangat puas!” – Andi, UMKM Pekanbaru",
+      "💬 “Ngurus PT jadi gampang banget, makasih!” – Siti, Owner Cafe Kopi",
+      "💬 “Responnya cepat & ramah, recommended banget!” – Rizky, Fashion Brand",
+      "💬 “Terima kasih Tanjak, usaha saya akhirnya legal 😍” – Dinda, Olshop",
+      "💬 “Sangat membantu untuk UMKM seperti saya.” – Roni",
+    ];
+    let index = 0;
+    function showNextMessage() {
+      chatBox.classList.remove("show");
+      setTimeout(() => {
+        chatBox.innerHTML = messages[index];
+        chatBox.classList.add("show");
+        index = (index + 1) % messages.length;
+      }, 500);
+    }
+    showNextMessage();
+    setInterval(showNextMessage, 5500);
+
+    // FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = answer.style.display === 'block';
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+
+    // Counter
+    let started = false;
+    function runCounters() {
+      document.querySelectorAll('.counter').forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const update = () => {
+          if (count < target) {
+            count += Math.ceil(target / 70);
+            counter.innerText = count > target ? target : count;
+            setTimeout(update, 100);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        update();
+      });
+    }
+    document.getElementById('cekStatistikBtn').addEventListener('click', () => {
+      const box = document.getElementById('statistikBox');
+      if (!started) {
+        box.style.display = 'flex';
+        runCounters();
+        started = true;
+      }
+    });
+  </script>
+</body>
+</html>
